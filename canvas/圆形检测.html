@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        background: black;text-align: center;
+    }
+    #c1{
+        background: #fff;
+    }
+    </style>
+</head>
+<body>
+    <canvas width="800" height="600" id="c1"></canvas>
+    <script>
+     window.onload=function(){
+         let oC=document.getElementById('c1')
+         let gd=oC.getContext('2d')
+         let cX=400,cY=300,r=200
+         
+         oC.onmousemove=function(ev){
+          let a=ev.offsetX-cX
+          let b=ev.offsetY-cY
+          let dis=Math.sqrt(a*a+b*b)
+          gd.beginPath()
+          gd.arc(cX,cY,r,0,2*Math.PI,true)
+          if(dis<=r){
+              gd.fillStyle="yellow"
+          }else{
+              gd.fillStyle="green"
+          }
+          gd.fill()
+         }
+        
+     }
+    </script>
+</body>
+</html>

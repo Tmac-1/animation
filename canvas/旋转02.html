@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        background: black;text-align: center;
+    }
+    #c1{
+        background: #fff;
+    }
+    </style>
+</head>
+<body>
+    <canvas width="800" height="600" id="c1"></canvas>
+    <script>
+    function d2a(n){
+       return n*Math.PI/180
+    }
+    function a2d(n){
+       return n*180/Math.PI
+    }
+     window.onload=function(){
+         let oC=document.getElementById('c1')
+         let gd=oC.getContext('2d')
+         let rotate = 0;
+         setInterval(() => {
+             gd.clearRect(0,0,oC.width,oC.height);
+             rotate++
+             // 保存canvas的状态（颜色，线宽，旋转，translate等），就是不保存canvas本身 ，
+             // 如果不使用save，会继承上一次的状态，不会新开一个状态
+             gd.save()
+             gd.translate(250,200)
+             gd.rotate(d2a(rotate))
+             gd.strokeRect(-150,-100,300,300)
+            // gd.strokeRect(0,0,200,200)
+            //  gd.strokeRect()
+            gd.restore()
+         }, 16);
+        
+     }
+    </script>
+</body>
+</html>
