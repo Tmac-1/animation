@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style media="screen">
+       body{
+           background: black;
+           text-align: center;
+       }
+       #c1{
+           background: #fff;
+       }
+    </style>
+</head>
+<body>
+    <canvas id="c1" width="800" height="600"></canvas>
+    <script>
+      window.onload=function(){
+          let oC = document.getElementById('c1');
+          let gd = oC.getContext('2d');
+          let oImage = new Image();
+          oImage.src="./sprit1.jpg"
+          oImage.onload=function(){
+            // 简易版
+            // drawImage(oImage,x,y)
+
+            // 完整版  9个参数
+            /**
+               drawImage(
+                   img,
+                   sx,sy,sw,sh,    s - source 来源  
+                   dx,sy,dw,dh     d - destination 目标
+               )
+            */
+            gd.drawImage(
+                oImage,
+                58,56,21,26,    
+                100,100,42,52  
+            )
+          }
+      }
+    </script>
+</body>
+</html>
